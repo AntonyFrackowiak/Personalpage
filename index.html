@@ -16,122 +16,16 @@
   - Minimal dependencies (pure HTML/CSS/JS)
 -->
 
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Portfolio de [VOTRE NOM] — CV, projets personnels, contact." />
-  <title>[VOTRE NOM] — Portfolio</title>
+<!-- ... (entête et styles inchangés) ... -->
 
-  <!-- Favicon (simple SVG data URL) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='80'%3E%F0%9F%92%BB%3C/text%3E%3C/svg%3E">
-
-  <!-- Open Graph (useful when sharing on social) -->
-  <meta property="og:title" content="[VOTRE NOM] — Portfolio" />
-  <meta property="og:description" content="CV, projets et contact — portfolio personnel." />
-  <meta property="og:type" content="website" />
-
-  <style>
-    :root{
-      --bg: #0f1724;
-      --card: #0b1220;
-      --muted: #9aa4b2;
-      --accent: #7c3aed; /* violet */
-      --accent-2: #06b6d4; /* cyan */
-      --glass: rgba(255,255,255,0.04);
-      --radius: 14px;
-      color-scheme: dark;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    }
-    [data-theme='light']{
-      --bg: #f6f9fc;
-      --card: #ffffff;
-      --muted: #475569;
-      --accent: #6d28d9;
-      --accent-2: #0ea5a4;
-      --glass: rgba(12,20,30,0.03);
-      color-scheme: light;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:radial-gradient(1000px 600px at 10% 10%, rgba(124,58,237,0.06), transparent), linear-gradient(180deg,var(--bg), #020617);font-size:16px}
-    body{color:#e6eef6;line-height:1.45}
-
-    /* Layout */
-    .container{max-width:1100px;margin:32px auto;padding:24px}
-    header{display:flex;gap:16px;align-items:center;justify-content:space-between}
-    .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;color:white;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
-    h1{font-size:20px;margin:0}
-    p.lead{margin:2px 0 0;color:var(--muted);font-size:13px}
-
-    /* Nav */
-    nav ul{list-style:none;display:flex;gap:10px;margin:0;padding:0}
-    nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:inherit;font-weight:600;font-size:14px}
-    nav a[aria-current='true'], nav a:hover{background:var(--glass)}
-
-    /* Main grid */
-    .main{display:grid;grid-template-columns:320px 1fr;gap:24px;margin-top:18px}
-
-    /* Sidebar card */
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:var(--radius);padding:18px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
-    .avatar{width:92px;height:92px;border-radius:14px;overflow:hidden;display:block}
-    .avatar img{width:100%;height:100%;object-fit:cover;display:block}
-    .meta{margin-top:12px}
-    .meta h2{margin:0;font-size:18px}
-    .meta p{margin:4px 0 0;color:var(--muted);font-size:13px}
-
-    .socials{display:flex;gap:8px;margin-top:12px}
-    .chip{padding:8px 10px;background:rgba(255,255,255,0.02);border-radius:10px;font-size:13px}
-
-    /* Section area */
-    .panel{background:transparent;padding:18px;border-radius:12px}
-    .section{margin-bottom:18px}
-    h3{margin:6px 0 12px}
-
-    /* CV layout */
-    .cv-grid{display:grid;grid-template-columns:1fr 160px;gap:16px}
-    .skill{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--glass);border-radius:10px;margin-bottom:8px}
-    .skill > span:first-child{font-weight:600}
-
-    /* Projects */
-    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-    .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:12px;border-radius:12px;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
-    .project:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.5)}
-    .project h4{margin:8px 0 4px}
-    .tags{display:flex;gap:6px;flex-wrap:wrap}
-    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03)}
-
-    /* Modal */
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:24px}
-    .modal.show{display:flex}
-    .modal-inner{width:100%;max-width:880px;background:var(--card);border-radius:16px;padding:20px;box-shadow:0 40px 120px rgba(2,6,23,0.6)}
-    .modal .close{float:right;border:none;background:none;color:var(--muted);font-size:18px}
-
-    /* Contact form */
-    form .row{display:flex;gap:8px}
-    input,textarea,button{font-family:inherit}
-    input,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
-    button{padding:10px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;font-weight:700;cursor:pointer}
-
-    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
-
-    /* Responsive */
-    @media (max-width:900px){.main{grid-template-columns:1fr}.avatar{width:76px;height:76px}.logo{width:44px;height:44px}}
-
-    /* Small accessibility helpers */
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-  </style>
-</head>
 <body data-theme="dark">
   <div class="container" id="page-root">
     <header>
       <div class="brand">
-        <div class="logo" aria-hidden="true">VN</div>
+        <div class="logo" aria-hidden="true">AF</div>
         <div>
-          <h1 id="site-title">[VOTRE NOM]</h1>
-          <p class="lead">Développeur • Designer • Créateur — CV & Projets</p>
+          <h1 id="site-title">Antony Frackowiak</h1>
+          <p class="lead">Physicien — Cosmologie & Univers à haute énergie</p>
         </div>
       </div>
 
@@ -147,310 +41,82 @@
         </nav>
 
         <button id="theme-toggle" aria-pressed="false" title="Basculer thème">Thème</button>
-        <a class="chip" href="#download-cv" id="download-cv-link">Télécharger CV</a>
+        <a class="chip" href="/CV-Antony-Frackowiak.pdf" id="download-cv-link" download>Télécharger CV</a>
       </div>
     </header>
 
     <main class="main" role="main">
-      <!-- SIDEBAR -->
       <aside class="card" aria-label="Carte profil">
         <a class="avatar" href="#home" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Photo de profil"/>
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Photo de profil Antony Frackowiak"/>
         </a>
         <div class="meta">
-          <h2 id="name">[VOTRE NOM]</h2>
-          <p id="role">Développeur full-stack — Product builder</p>
+          <h2 id="name">Antony Frackowiak</h2>
+          <p id="role">Master 2 Cosmologie — Université Claude Bernard Lyon 1</p>
         </div>
-
-        <div class="socials" role="presentation">
+        <div class="socials">
           <a class="chip" href="#">GitHub</a>
           <a class="chip" href="#">LinkedIn</a>
-          <a class="chip" href="#">Twitter</a>
+          <a class="chip" href="#">ResearchGate</a>
         </div>
-
-        <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
-
+        <hr />
         <div>
           <strong>Compétences</strong>
           <div style="margin-top:8px">
-            <div class="skill"><span>JavaScript</span><span>Expert</span></div>
-            <div class="skill"><span>React / Vite</span><span>Avancé</span></div>
-            <div class="skill"><span>Node.js</span><span>Intermédiaire</span></div>
-            <div class="skill"><span>Design UI</span><span>Intermédiaire</span></div>
+            <div class="skill"><span>Physique fondamentale</span><span>Avancé</span></div>
+            <div class="skill"><span>Python / C++</span><span>Intermédiaire</span></div>
+            <div class="skill"><span>Mathematica / SageMath</span><span>Confirmé</span></div>
+            <div class="skill"><span>Anglais</span><span>B2</span></div>
           </div>
         </div>
-
-        <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
-
+        <hr />
         <div>
           <strong>Contact</strong>
-          <p style="margin:6px 0 0;color:var(--muted)">email@exemple.com<br/>Paris, France</p>
+          <p style="margin:6px 0 0;color:var(--muted)">antony.frackowiak@etu.univ-lyon1.fr<br/>Vaux en Bugey, France</p>
         </div>
       </aside>
 
-      <!-- CONTENT -->
       <section class="panel" id="content-panel">
-        <!-- HOME -->
         <article id="home" class="section" tabindex="-1">
-          <h3>Bienvenue — Je suis [VOTRE NOM]</h3>
-          <p class="lead" style="color:var(--muted)">Je conçois et développe des applications web modernes. Ci-dessous : mon CV, mes projets personnels et un petit espace pour prendre contact.</p>
-
-          <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
-            <a class="chip" href="#projets">Voir mes projets</a>
-            <a class="chip" href="#contact">Me contacter</a>
-            <a class="chip" href="#cv">Lire mon CV</a>
-          </div>
+          <h3>Bienvenue — Je suis Antony Frackowiak</h3>
+          <p class="lead" style="color:var(--muted)">Étudiant en Master 2 Cosmologie et Univers à haute énergie, passionné par l'astrophysique, l'aérospatial et l'écriture. Vous trouverez ici mon parcours, mes projets et mes coordonnées.</p>
         </article>
 
-        <!-- CV -->
         <article id="cv" class="section" tabindex="-1">
           <h3>CV & Expériences</h3>
           <div class="cv-grid">
             <div>
               <p style="color:var(--muted)">Résumé :</p>
-              <p>Ingénieur logiciel avec X années d'expérience dans la création d'applications web et la conception de produits. Expériences marquantes : entreprise A — rôle, entreprise B — rôle.</p>
-
-              <h4 style="margin-top:12px">Expériences récentes</h4>
+              <p>Master 2 en Cosmologie et Univers à haute énergie, avec expérience en modélisation de métriques relativistes (Alcubierre warpdrive). Auteur publié et passionné par la recherche en physique fondamentale.</p>
+              <h4>Formation</h4>
               <ul style="color:var(--muted)">
-                <li><strong>2022–2024</strong> — Lead Developer, Entreprise A (Paris)</li>
-                <li><strong>2020–2022</strong> — Développeur full-stack, Startup B</li>
-                <li><strong>2018–2020</strong> — Freelance — projets web</li>
+                <li>2024–2025 — Master 2 Cosmologie et Univers à haute énergie, UCBL1</li>
+                <li>2023–2024 — Master 1 Physique Fondamentale et Applications, UCBL1</li>
+                <li>2019–2023 — Licence PCSI, mention Physique, UCBL1</li>
+                <li>2019 — Bac SVT spé Maths, mention AB</li>
               </ul>
-
+              <h4>Expérience professionnelle</h4>
+              <ul style="color:var(--muted)">
+                <li>2023 — Manutentionnaire, Intersport</li>
+                <li>2021 & 2019 — Menuisier poseur, Bois et Moi</li>
+              </ul>
               <div style="margin-top:12px">
-                <a class="chip" id="cv-download" href="/CV-[VOTRE-NOM].pdf" download>Télécharger le PDF</a>
-                <a class="chip" href="#contact">Demander une copie signée</a>
+                <a class="chip" href="/CV-Antony-Frackowiak.pdf" download>Télécharger le PDF</a>
               </div>
             </div>
-
             <aside style="background:var(--glass);padding:12px;border-radius:10px">
               <strong>Compétences techniques</strong>
               <div style="margin-top:8px">
-                <div class="skill"><span>HTML / CSS</span><span>Expert</span></div>
-                <div class="skill"><span>JavaScript</span><span>Expert</span></div>
-                <div class="skill"><span>React</span><span>Avancé</span></div>
-                <div class="skill"><span>Node.js</span><span>Intermédiaire</span></div>
-                <div class="skill"><span>Docker</span><span>Intermédiaire</span></div>
+                <div class="skill"><span>Python</span><span>Intermédiaire</span></div>
+                <div class="skill"><span>C++</span><span>Intermédiaire</span></div>
+                <div class="skill"><span>Mathematica</span><span>Confirmé</span></div>
+                <div class="skill"><span>SageMath</span><span>Confirmé</span></div>
               </div>
             </aside>
           </div>
         </article>
-
-        <!-- PROJECTS -->
-        <article id="projets" class="section" tabindex="-1">
-          <h3>Projets personnels</h3>
-          <p style="color:var(--muted)">Cliquez sur une carte pour ouvrir plus d'informations.</p>
-
-          <div class="projects-grid" id="projects-grid" aria-live="polite">
-            <!-- Project cards will be inserted by JS -->
-          </div>
-        </article>
-
-        <!-- NOTES / BLOG -->
-        <article id="notes" class="section" tabindex="-1">
-          <h3>Notes & Blog</h3>
-          <p style="color:var(--muted)">Courtes réflexions et liens vers des articles ou démos.</p>
-
-          <div class="card" style="margin-top:10px">
-            <h4>Créer un portfolio moderne en 2025</h4>
-            <p style="color:var(--muted)">Résumé : privilégiez l'accessibilité, la performance et une histoire métier claire.</p>
-            <a class="chip" href="#">Lire</a>
-          </div>
-        </article>
-
-        <!-- CONTACT -->
-        <article id="contact" class="section" tabindex="-1">
-          <h3>Contact</h3>
-          <p style="color:var(--muted)">Envoyez-moi un message — formulaire en JS (mail via vos outils, ex: Formspree / Netlify forms ou pareil).</p>
-
-          <form id="contact-form" onsubmit="return handleContactSubmit(event)">
-            <div class="row">
-              <input id="name-input" name="name" placeholder="Votre nom" required />
-              <input id="email-input" name="email" placeholder="Votre email" type="email" required />
-            </div>
-            <div style="margin-top:8px">
-              <input id="subject-input" name="subject" placeholder="Sujet" required />
-            </div>
-            <div style="margin-top:8px">
-              <textarea id="message-input" name="message" placeholder="Votre message" rows="5" required></textarea>
-            </div>
-            <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
-              <button type="submit">Envoyer</button>
-              <span id="contact-result" style="color:var(--muted)"></span>
-            </div>
-          </form>
-        </article>
-
-        <footer>
-          <div>© <span id="year"></span> [VOTRE NOM]. Built with ❤️ — <a href="#" style="color:inherit">Source</a></div>
-        </footer>
       </section>
     </main>
   </div>
-
-  <!-- Project Modal -->
-  <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-hidden="true">
-    <div class="modal-inner" role="document">
-      <button class="close" aria-label="Fermer" id="modal-close">✕</button>
-      <div id="modal-content"></div>
-    </div>
-  </div>
-
-  <script>
-    // ---- Sample data: replace with your real projects ----
-    const PROJECTS = [
-      {
-        id: 'p1',
-        title: 'App de gestion de tâches',
-        short: 'Un gestionnaire de tâches performant avec synchronisation en temps réel.',
-        description: 'Construite avec React, Node.js et WebSocket. Authentification, filtres avancés, et tests unitaires. Déployée sur Vercel/Heroku.',
-        tags: ['React','Node','Realtime'],
-        link: 'https://github.com/votre-username/projet-taches',
-        img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder'
-      },
-      {
-        id: 'p2',
-        title: 'Mini-portfolio (this site)',
-        short: 'Ce template de portfolio tout-en-un (HTML/CSS/JS) — minimal et accessible.',
-        description: 'Single-file template. Instructions prêtes pour GitHub Pages. Includes theme toggle and modal viewer.',
-        tags: ['HTML','CSS','JS'],
-        link: 'https://github.com/votre-username/portfolio',
-        img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder'
-      },
-      {
-        id: 'p3',
-        title: 'Analyse de données',
-        short: 'Notebooks et visualisations pour analyser des jeux de données publics.',
-        description: 'Scripts Python + notebooks. Visualisations exportables et pipeline ETL léger.',
-        tags: ['Python','Data'],
-        link: '#',
-        img: 'https://images.unsplash.com/photo-1554168264-79f5b0d8bb24?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder'
-      }
-    ];
-
-    // ---- DOM helpers and initialization ----
-    const grid = document.getElementById('projects-grid');
-    const modal = document.getElementById('project-modal');
-    const modalContent = document.getElementById('modal-content');
-    const modalClose = document.getElementById('modal-close');
-    const yearEl = document.getElementById('year');
-
-    function createProjectCard(project){
-      const el = document.createElement('article');
-      el.className = 'project';
-      el.tabIndex = 0;
-      el.setAttribute('role','button');
-      el.setAttribute('aria-labelledby', project.id + '-title');
-      el.innerHTML = `
-        <img src="${project.img}" alt="" style="width:100%;height:120px;object-fit:cover;border-radius:8px"/>
-        <h4 id="${project.id}-title">${project.title}</h4>
-        <p style="color:var(--muted);margin:0 0 8px">${project.short}</p>
-        <div class="tags">${project.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-      `;
-
-      el.addEventListener('click', () => openModal(project));
-      el.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') openModal(project); });
-
-      return el;
-    }
-
-    function openModal(project){
-      modalContent.innerHTML = `
-        <h2>${project.title}</h2>
-        <p style="color:var(--muted)">${project.description}</p>
-        <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap">
-          <a class="chip" href="${project.link}" target="_blank" rel="noopener">Voir le code</a>
-          <button class="chip" id="modal-copy">Copier le lien</button>
-        </div>
-        <img src="${project.img}" alt="Visuel ${project.title}" style="width:100%;margin-top:12px;border-radius:10px;max-height:420px;object-fit:cover"/>
-      `;
-      modal.classList.add('show');
-      modal.setAttribute('aria-hidden','false');
-      document.body.style.overflow = 'hidden';
-
-      // copy button
-      const copyBtn = document.getElementById('modal-copy');
-      if(copyBtn){ copyBtn.addEventListener('click', ()=>{ navigator.clipboard.writeText(project.link).then(()=>{ alert('Lien copié dans le presse-papiers'); }); }); }
-      // trap focus for accessibility
-      modalClose.focus();
-    }
-
-    function closeModal(){
-      modal.classList.remove('show');
-      modal.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
-    }
-
-    modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
-
-    // Populate projects
-    function renderProjects(){
-      grid.innerHTML = '';
-      PROJECTS.forEach(p => grid.appendChild(createProjectCard(p)));
-    }
-
-    // Simple theme toggle that remembers preference
-    const themeBtn = document.getElementById('theme-toggle');
-    themeBtn.addEventListener('click', ()=>{
-      const root = document.documentElement; const cur = root.getAttribute('data-theme') || 'dark';
-      const next = cur === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-      themeBtn.setAttribute('aria-pressed', next === 'dark' ? 'false' : 'true');
-    });
-    (function loadTheme(){ const t = localStorage.getItem('theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); })();
-
-    // Navigation: smooth scroll + update aria-current
-    const nav = document.getElementById('main-nav');
-    nav.addEventListener('click', (e)=>{
-      if(e.target.matches('a[data-target]')){
-        e.preventDefault(); const target = document.getElementById(e.target.dataset.target);
-        target.scrollIntoView({behavior:'smooth',block:'start'});
-        // update current
-        nav.querySelectorAll('a').forEach(a => a.removeAttribute('aria-current'));
-        e.target.setAttribute('aria-current','true');
-      }
-    });
-
-    // Contact form handler (client-side only)
-    function handleContactSubmit(e){
-      e.preventDefault();
-      const name = document.getElementById('name-input').value.trim();
-      const email = document.getElementById('email-input').value.trim();
-      const subject = document.getElementById('subject-input').value.trim();
-      const message = document.getElementById('message-input').value.trim();
-      const result = document.getElementById('contact-result');
-
-      // Basic validation
-      if(!name || !email || !message){ result.textContent = 'Veuillez remplir tous les champs.'; return false; }
-
-      // Example: show message and reset form. For production, connect to an email service (Formspree, Netlify forms, or your backend).
-      result.textContent = 'Merci — message prêt à être envoyé (exemple local).';
-      setTimeout(()=>{ document.getElementById('contact-form').reset(); result.textContent = ''; }, 2200);
-      return false;
-    }
-
-    // Small accessibility: keyboard skip to content
-    document.addEventListener('DOMContentLoaded', ()=>{
-      renderProjects();
-      yearEl.textContent = new Date().getFullYear();
-      // 'Enter' on logo returns home
-      document.querySelector('.logo').addEventListener('click', ()=> document.getElementById('home').scrollIntoView({behavior:'smooth'}));
-    });
-
-    // Expose contact handler globally for inline onsubmit
-    window.handleContactSubmit = handleContactSubmit;
-
-    // Small progressive enhancement: allow adding projects via console for quick editing
-    window.__addProject = function(p){ PROJECTS.push(p); renderProjects(); };
-
-    // Keyboard navigation improvements: focus outlines for keyboard users
-    (function(){
-      function handleFirstTab(e){ if(e.key === 'Tab'){ document.body.classList.add('user-is-tabbing'); window.removeEventListener('keydown', handleFirstTab); }}
-      window.addEventListener('keydown', handleFirstTab);
-    })();
-  </script>
 </body>
-</html>
+
