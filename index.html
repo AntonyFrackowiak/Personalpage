@@ -1,23 +1,8 @@
-<!--
-  portfolio_site.html
-  Single-file portfolio template (HTML + CSS + JS)
-
-  Instructions:
-  1) Save this file as `index.html` in the root of your repository.
-  2) Add your real content where indicated (NAME, BIO, projects array, CV PDF path).
-  3) To host on GitHub Pages: push this repo to GitHub and enable Pages for the main branch (Settings → Pages → Deploy). The page will be available at https://<your-username>.github.io/<repo-name>/
-
-  Features:
-  - Responsive layout
-  - Accessible navigation and keyboard support
-  - Sections: Home, CV (download & inline summary), Projets, Blog/Notes, Contact
-  - Interactive tabs and modal project viewer
-  - Dark/light theme toggle
-  - Minimal dependencies (pure HTML/CSS/JS)
--->
-
-<!-- ... (entête et styles inchangés) ... -->
-
+<!doctype html>
+<html lang="fr">
+<head>
+  <!-- (meta, styles et scripts d'origine ici) -->
+</head>
 <body data-theme="dark">
   <div class="container" id="page-root">
     <header>
@@ -28,7 +13,6 @@
           <p class="lead">Physicien — Cosmologie & Univers à haute énergie</p>
         </div>
       </div>
-
       <div style="display:flex;gap:12px;align-items:center">
         <nav aria-label="Navigation principale">
           <ul id="main-nav">
@@ -39,20 +23,16 @@
             <li><a href="#contact" data-target="contact">Contact</a></li>
           </ul>
         </nav>
-
         <button id="theme-toggle" aria-pressed="false" title="Basculer thème">Thème</button>
-        <a class="chip" href="/CV-Antony-Frackowiak.pdf" id="download-cv-link" download>Télécharger CV</a>
+        <a class="chip" href="/CV-Antony-Frackowiak.pdf" download>Télécharger CV</a>
       </div>
     </header>
-
     <main class="main" role="main">
       <aside class="card" aria-label="Carte profil">
-        <a class="avatar" href="#home" aria-hidden="true">
-          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Photo de profil Antony Frackowiak"/>
-        </a>
+        <a class="avatar" href="#home" aria-hidden="true"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="Photo de profil Antony Frackowiak"/></a>
         <div class="meta">
-          <h2 id="name">Antony Frackowiak</h2>
-          <p id="role">Master 2 Cosmologie — Université Claude Bernard Lyon 1</p>
+          <h2>Antony Frackowiak</h2>
+          <p>Master 2 Cosmologie — Université Claude Bernard Lyon 1</p>
         </div>
         <div class="socials">
           <a class="chip" href="#">GitHub</a>
@@ -60,29 +40,23 @@
           <a class="chip" href="#">ResearchGate</a>
         </div>
         <hr />
-        <div>
-          <strong>Compétences</strong>
-          <div style="margin-top:8px">
-            <div class="skill"><span>Physique fondamentale</span><span>Avancé</span></div>
-            <div class="skill"><span>Python / C++</span><span>Intermédiaire</span></div>
-            <div class="skill"><span>Mathematica / SageMath</span><span>Confirmé</span></div>
-            <div class="skill"><span>Anglais</span><span>B2</span></div>
-          </div>
+        <strong>Compétences</strong>
+        <div style="margin-top:8px">
+          <div class="skill"><span>Physique fondamentale</span><span>Avancé</span></div>
+          <div class="skill"><span>Python / C++</span><span>Intermédiaire</span></div>
+          <div class="skill"><span>Mathematica / SageMath</span><span>Confirmé</span></div>
+          <div class="skill"><span>Anglais</span><span>B2</span></div>
         </div>
         <hr />
-        <div>
-          <strong>Contact</strong>
-          <p style="margin:6px 0 0;color:var(--muted)">antony.frackowiak@etu.univ-lyon1.fr<br/>Vaux en Bugey, France</p>
-        </div>
+        <strong>Contact</strong>
+        <p style="margin:6px 0 0;color:var(--muted)">antony.frackowiak@etu.univ-lyon1.fr<br/>Vaux en Bugey, France</p>
       </aside>
-
       <section class="panel" id="content-panel">
-        <article id="home" class="section" tabindex="-1">
+        <article id="home" class="section">
           <h3>Bienvenue — Je suis Antony Frackowiak</h3>
           <p class="lead" style="color:var(--muted)">Étudiant en Master 2 Cosmologie et Univers à haute énergie, passionné par l'astrophysique, l'aérospatial et l'écriture. Vous trouverez ici mon parcours, mes projets et mes coordonnées.</p>
         </article>
-
-        <article id="cv" class="section" tabindex="-1">
+        <article id="cv" class="section">
           <h3>CV & Expériences</h3>
           <div class="cv-grid">
             <div>
@@ -100,9 +74,7 @@
                 <li>2023 — Manutentionnaire, Intersport</li>
                 <li>2021 & 2019 — Menuisier poseur, Bois et Moi</li>
               </ul>
-              <div style="margin-top:12px">
-                <a class="chip" href="/CV-Antony-Frackowiak.pdf" download>Télécharger le PDF</a>
-              </div>
+              <a class="chip" href="/CV-Antony-Frackowiak.pdf" download>Télécharger le PDF</a>
             </div>
             <aside style="background:var(--glass);padding:12px;border-radius:10px">
               <strong>Compétences techniques</strong>
@@ -119,4 +91,4 @@
     </main>
   </div>
 </body>
-
+</html>
