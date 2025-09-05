@@ -1,0 +1,329 @@
+<style>
+    :root {
+      --bg: #0a0a0a;            /* Noir profond */
+      --card: #111111;          /* Cartes très sombres */
+      --muted: #aab4c0;
+      --accent: #7c3aed;
+      --accent-2: #06b6d4;
+      --glass: rgba(255,255,255,0.08);
+      color-scheme: dark;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --bg-image: url('Apollo8.jpg.png');
+    }
+
+    [data-theme='light'] {
+      --bg: #ffffff;            /* Blanc franc */
+      --card: #f0f4f8;          /* Gris très clair pour réduire l’éblouissement */
+      --muted: #374151; 
+      --accent: #6d28d9;
+      --accent-2: #0ea5a4;
+      --glass: rgba(0,0,0,0.06);
+      color-scheme: light;
+    }
+
+    *{box-sizing:border-box}
+    html, body {
+	  min-height: 100%;
+	  margin: 0;
+	  font-size: 16px;
+	  }
+
+	/* Mode sombre */
+	[data-theme='dark'] body {
+	  background: var(--bg);
+	  background-image: 
+		linear-gradient(
+		  rgba(0,0,0,0.5),   /* voile léger, pas trop sombre */
+		  rgba(0,0,0,0.5)
+		),
+		url("Apollo8.jpg.png"); 
+	  background-size: cover;
+	  background-position: center top;
+	  background-attachment: fixed;
+	  background-blend-mode: multiply;
+
+	  color: #e6eef6;
+	  line-height: 1.45;
+	}
+
+	/* Mode clair */
+	[data-theme='light'] body {
+	  background: var(--bg);
+	  background-image: 
+		linear-gradient(
+		  rgba(255,255,255,0.55),   /* voile blanc fin */
+		  rgba(255,255,255,0.55)
+		),
+		url("Apollo8.jpg.png"); 
+	  background-size: cover;
+	  background-position: center top;
+	  background-attachment: fixed;
+	  background-blend-mode: lighten;
+
+	  color: #1e293b;
+	  line-height: 1.45;
+	}
+
+    }
+
+    body {
+      color:#e6eef6;
+      line-height:1.45;
+      backdrop-filter: blur(6px) brightness(0.8); /* voile assombrissant */
+      background-blend-mode: multiply;
+    }
+
+    [data-theme='light'] body {
+      color:#1e293b;
+      backdrop-filter: blur(6px) brightness(1.2); /* voile éclaircissant */
+      background-blend-mode: screen;
+    }
+
+
+
+
+
+
+	/* Fond spécifique pour warpdrive.html en mode sombre */
+	body.warpdrive-page[data-theme='dark'] {
+	  background: var(--bg);
+	  background-image: 
+		linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+		url("warpdrivepics.png");  /* Ton image spécifique */
+	  background-size: cover;
+	  background-position: center top;
+	  background-attachment: fixed;
+	  background-blend-mode: multiply;
+      color: #ffffff;  /* texte blanc */
+
+	}
+
+	/* Fond spécifique pour warpdrive.html en mode clair */
+	body.warpdrive-page[data-theme='light'] {
+	  background: var(--bg);
+	  background-image: 
+		linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)),
+		url("warpdrivepics.png");  /* Ton image spécifique */
+	  background-size: cover;
+	  background-position: center top;
+	  background-attachment: fixed;
+	  background-blend-mode: lighten;
+	}
+
+	/* Fond spécifique pour astrophoto.html en mode sombre */
+	body.astrophoto-page[data-theme='dark'] {
+	  background: var(--bg);
+	  background-image: 
+		linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+		url("astrophotopics.jpg");  /* Ton image spécifique */
+	  background-size: cover;
+	  background-position: center top;
+	  background-attachment: fixed;
+	  background-blend-mode: multiply;
+      color: #ffffff;  /* texte blanc */
+
+	}
+
+	/* Fond spécifique pour astrophoto.html en mode clair */
+	body.astrophoto-page[data-theme='light'] {
+	  background: var(--bg);
+	  background-image: 
+		linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)),
+		url("astrophotopics.jpg");  /* Ton image spécifique */
+	  background-size: cover;
+	  background-position: center top;
+	  background-attachment: fixed;
+	  background-blend-mode: lighten;
+	}
+
+	/* Fond spécifique pour livres.html en mode sombre */
+	body.livres-page[data-theme='dark'] {
+	  background: var(--bg);
+	  background-image: 
+		linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+		url("livrescouverturespics.png");  /* Ton image spécifique */
+	  background-size: cover;
+	  background-position: center top;
+	  background-attachment: fixed;
+	  background-blend-mode: multiply;
+      color: #ffffff;  /* texte blanc */
+
+	}
+
+	/* Fond spécifique pour livres.html en mode clair */
+	body.livres-page[data-theme='light'] {
+	  background: var(--bg);
+	  background-image: 
+		linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)),
+		url("livrescouverturespics.png");  /* Ton image spécifique */
+	  background-size: cover;
+	  background-position: center top;
+	  background-attachment: fixed;
+	  background-blend-mode: lighten;
+	}
+	
+	
+
+
+	/* Fond spécifique pour Chronosmedia.html en mode sombre */
+	body.chronos-page[data-theme='dark'] {
+	  background: var(--bg);
+	  background-image: 
+		linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+		url("Chronosmediapic.webp");  /* Ton image spécifique */
+	  background-size: cover;
+	  background-position: center top;
+	  background-attachment: fixed;
+	  background-blend-mode: multiply;
+      color: #ffffff;  /* texte blanc */
+
+	}
+
+	/* Fond spécifique pour chronosmedia.html en mode clair */
+	body.chronos-page[data-theme='light'] {
+	  background: var(--bg);
+	  background-image: 
+		linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55)),
+		url("Chronosmediapic.webp");  /* Ton image spécifique */
+	  background-size: cover;
+	  background-position: center top;
+	  background-attachment: fixed;
+	  background-blend-mode: multiply;
+	  color: #000000;  /* texte noir */
+	}
+
+
+	/* Gallery layout */
+	.gallery {
+	  display: grid;
+	  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	  gap: 1.5rem;
+	  margin-top: 2rem;
+	}
+
+	/* Carte photo */
+	.photo-card {
+	  position: relative;
+	  overflow: hidden;
+	  border-radius: 12px;
+	  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+	  cursor: pointer;
+	}
+
+	.photo-card img {
+	  width: 100%;
+	  height: auto;
+	  display: block;
+	  transition: transform 0.4s ease;
+	}
+
+	/* Zoom léger au survol */
+	.photo-card:hover img {
+	  transform: scale(1.05);
+	}
+
+	/* Overlay d’infos caché par défaut */
+	.photo-card .info {
+	  position: absolute;
+	  inset: 0;
+	  background: rgba(0,0,0,0.75);
+	  color: white;
+	  opacity: 0;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center;
+	  align-items: center;
+	  text-align: center;
+	  padding: 1rem;
+	  transition: opacity 0.4s ease;
+	}
+
+	/* Affiche les infos au survol */
+	.photo-card:hover .info {
+	  opacity: 1;
+	}
+
+	.photo-card .info h3 {
+	  margin: 0 0 0.5rem;
+	  font-size: 1.2rem;
+	}
+
+
+
+    /* Layout */
+    .container{max-width:1100px;margin:32px auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:20px;color:white;box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:2px 0 0;color:var(--muted);font-size:13px}
+
+    /* Nav */
+    nav ul{list-style:none;display:flex;gap:10px;margin:0;padding:0}
+    nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:inherit;font-weight:600;font-size:14px}
+    nav a[aria-current='true'], nav a:hover{background:var(--glass)}
+
+    /* Main grid */
+    .main{display:grid;grid-template-columns:320px 1fr;gap:24px;margin-top:18px}
+
+    /* Sidebar card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border-radius:var(--radius);padding:18px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+    .avatar {
+	  display: block;
+	  width: 60%;       /* prend toute la largeur de la carte */
+	  height: auto;      /* garde les proportions */
+	  border-radius: 12px; /* optionnel : arrondir les coins */
+	  overflow: hidden;
+	}
+
+	.avatar img {
+	  width: 60%;
+	  height: auto;      /* pas de crop, conserve la netteté */
+	  object-fit: cover; /* si tu veux que ça remplisse même si les proportions diffèrent */
+	  display: block;
+	}
+
+    .meta{margin-top:12px}
+    .meta h2{margin:0;font-size:18px}
+    .meta p{margin:4px 0 0;color:var(--muted);font-size:13px}
+
+    .socials{display:flex;gap:8px;margin-top:12px}
+    .chip{padding:8px 10px;background:rgba(255,255,255,0.08);border-radius:10px;font-size:13px}
+
+    /* Section area */
+    .panel{background:transparent;padding:18px;border-radius:12px}
+    .section{margin-bottom:18px}
+    h3{margin:6px 0 12px}
+
+    /* CV layout */
+    .cv-grid{display:grid;grid-template-columns:1fr 160px;gap:16px}
+    .skill{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:var(--glass);border-radius:10px;margin-bottom:8px}
+    .skill > span:first-child{font-weight:600}
+
+    /* Projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+    .project{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:12px;border-radius:12px;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease}
+    .project:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,6,23,0.5)}
+    .project h4{margin:8px 0 4px}
+    .tags{display:flex;gap:6px;flex-wrap:wrap}
+    .tag{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03)}
+
+    /* Modal */
+    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;padding:24px}
+    .modal.show{display:flex}
+    .modal-inner{width:100%;max-width:880px;background:var(--card);border-radius:16px;padding:20px;box-shadow:0 40px 120px rgba(2,6,23,0.6)}
+    .modal .close{float:right;border:none;background:none;color:var(--muted);font-size:18px}
+
+    /* Contact form */
+    form .row{display:flex;gap:8px}
+    input,textarea,button{font-family:inherit}
+    input,textarea{width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    button{padding:10px 14px;border-radius:10px;border:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;font-weight:700;cursor:pointer}
+
+    footer{margin-top:22px;color:var(--muted);font-size:13px;text-align:center}
+
+    /* Responsive */
+    @media (max-width:900px){.main{grid-template-columns:1fr}.avatar{width:76px;height:76px}.logo{width:44px;height:44px}}
+
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>

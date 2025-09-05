@@ -1,12 +1,355 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Mon Site Personnel</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Portfolio de Antony Frackowiak — CV, projets personnels, contact." />
+  <title>Antony Frackowiak — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  
 </head>
-<body>
-    <h1>Bienvenue sur mon site</h1>
-    <p>Je m'appelle Antony Frackowiak et voici mon site web personnel !</p>
+
+<body data-theme="dark">
+  <div class="container" id="page-root">
+    <header>
+      <div class="brand">
+        <img class="logo" src="alpha_sigma.jpg" alt="Logo">
+
+        <div>
+          <h1 id="site-title">Antony Frackowiak</h1>
+          <p class="lead"> Ecriture • Astrophotographie • Cosmologie • Limites planétaires • Speedcubing — CV & Projets</p>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <nav>
+		    <ul>
+		      <li><a href="index.html" aria-current="true">Accueil</a></li>
+		      <li><a href="astrophoto.html">Astrophotographie</a></li>
+		      <li><a href="warpdrive.html">Warp Drive</a></li>
+		      <li><a href="livres.html">Mes livres</a></li>
+		      <li><a href="Chronosmedia.html">Chronos media</a></li>
+		      <li><a href="#contact">Contact</a></li>
+		    </ul>
+        </nav>
+
+        <button id="theme-toggle" aria-pressed="false" title="Basculer thème">Thème</button>
+        <a class="chip" href="CVAntonyFrackowiak.pdf" id="cv-download">Télécharger CV</a>
+      </div>
+    </header>
+
+    <main class="main" role="main">
+      <!-- SIDEBAR -->
+      <aside class="card" aria-label="Carte profil">
+        <a class="avatar" href="#home" aria-hidden="true">
+          <img src="profilpics.jpg" alt="Photo de profil"/>
+        </a>
+        <div class="meta">
+          <h2 id="name">Antony Frackowiak</h2>
+        </div>
+
+        <div class="socials" role="presentation">
+          <p>
+          <a class="chip" href="https://github.com/AntonyFrackowiak">GitHub</a>
+          <a class="chip" href="https://www.linkedin.com/in/antony-frackowiak-61ab83291/">LinkedIn</a>
+          </p>
+          <p>
+          <a class="chip" href="https://www.instagram.com/antonyfrackowiak?utm_source=ig_web_button_share_sheet&igsh=MjR3eGlhczNnZ3ls">Instagram Antonyfrackowiak</a>
+          <a class="chip" href="https://www.instagram.com/jesuischronos?utm_source=ig_web_button_share_sheet&igsh=YTZ4MjBzbzRvdGtr">Instagram jesuischronos</a>
+          </p>
+          <p>
+          <a class="chip" href="https://www.worldcubeassociation.org/persons/2018FRAC01">WCA</a>
+          <a class="chip" href="https://www.amazon.fr/stores/Antony-Frackowiak/author/B0B7SKYM2C?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true">Amazon</a>
+          </p>
+        </div>
+
+        <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
+
+        <div>
+          <strong>Compétences</strong>
+          <div style="margin-top:8px">
+            <div class="skill"><span>Python</span><span>Avancé</span></div>
+            <div class="skill"><span>C++</span><span>Intermédiaire</span></div>
+            <div class="skill"><span>Mathematica</span><span>Débutant</span></div>
+          </div>
+        </div>
+
+        <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)" />
+
+        <div>
+          <strong>Contact</strong>
+          <p style="margin:6px 0 0;color:var(--muted)">antonyfrackowiak@gmail.com<br/>Lyon, France</p>
+        </div>
+      </aside>
+
+      <!-- CONTENT -->
+      <section class="panel" id="content-panel">
+        <!-- HOME -->
+        <article id="home" class="section" tabindex="-1">
+          <h3>Bienvenue — Je suis Antony Frackowiak</h3>
+          <p class="lead" style="color:var(--muted)">Je suis titulaire d'un master Cosmologie et Univers à hautes énergie et actuellement en recherche de thèse. Vous trouverez tout d'abord sur ce site tous ce qui concerne ma formation universitaire :  mon CV, mes travaux de stage de master sur les warpdrive. Vous trouverez également tous ce qui me passionnne, mes projets personnels, mes photos astronomiques, mon engagement et un petit espace pour prendre contact.</p>
+
+          <div style="display:flex;gap:12px;margin-top:14px;flex-wrap:wrap">
+            <a class="chip" href="#projets">Voir mes projets</a>
+            <a class="chip" href="#contact">Me contacter</a>
+            <a class="chip" href="#cv">Lire mon CV</a>
+          </div>
+        </article>
+
+        <!-- CV -->
+        <article id="cv" class="section" tabindex="-1">
+          <h3>CV & Expériences</h3>
+          <div class="cv-grid">
+            <div>
+              <p style="color:var(--muted)">Résumé :</p>
+              <p> (A ajouter ...) </p>
+
+              <h4 style="margin-top:12px">Expériences récentes</h4>
+              <ul style="color:var(--muted)">
+                <li><strong>2024–2025</strong> — Master 2 Cosmologie et Univers à haute énergie, Université Claude Bernard Lyon 1  
+(Stage ENS Lyon sous la direction de Thomas Buchert : Novel realizations of the  
+Alcubierre warpdrive as a solution of general relativity (Durée : 4 mois))</li>
+                <li><strong>2023–2024</strong> — Master 1 Physique Fondamentale et Applications, Université Claude Bernard     
+Lyon 1 (Stage ENS Lyon sous la direction de Thomas Buchert : Characterization and                                   
+modeling of the properties of the Alcubierre metric in an inertial approach. (Durée : 6  
+semaines))</li>
+                <li><strong>2019–2023</strong> — Licence PCSI, mention Physique, Université Claude Bernard Lyon 1 </li>
+              </ul>
+
+              <div style="margin-top:12px">
+                <a class="chip" id="cv-download" href="CVAntonyFrackowiak.pdf" download>Télécharger le PDF</a>
+              </div>
+            </div>
+          </div>
+        </article>
+       
+      
+        <!-- PROJECTS -->
+      <!--
+        <article id="projets" class="section" tabindex="-1">
+          <h3>Projets personnels</h3>
+          <p style="color:var(--muted)">Cliquez sur une carte pour ouvrir plus d'informations.</p>
+
+          <div class="projects-grid" id="projects-grid" aria-live="polite">
+            <!-- Project cards will be inserted by JS -->
+     
+      <!--
+          </div>
+        </article>
+      -->
+
+   
+        <!-- NOTES / BLOG -->
+   <!--     <article id="notes" class="section" tabindex="-1">
+          <h3>Notes & Blog</h3>
+          <p style="color:var(--muted)">Courtes réflexions et liens vers des articles ou démos.</p>
+
+          <div class="card" style="margin-top:10px">
+            <h4>Créer un portfolio moderne en 2025</h4>
+            <p style="color:var(--muted)">Résumé : privilégiez l'accessibilité, la performance et une histoire métier claire.</p>
+            <a class="chip" href="#">Lire</a>
+          </div>
+        </article>
+
+	-->
+	
+        <!-- CONTACT -->
+        <article id="contact" class="section" tabindex="-1">
+          <h3>Contact</h3>
+          <p style="color:var(--muted)">Envoyez-moi un message — formulaire en JS (mail via vos outils, ex: Formspree / Netlify forms ou pareil).</p>
+
+          <form id="contact-form" onsubmit="return handleContactSubmit(event)">
+            <div class="row">
+              <input id="name-input" name="name" placeholder="Votre nom" required />
+              <input id="email-input" name="email" placeholder="Votre email" type="email" required />
+            </div>
+            <div style="margin-top:8px">
+              <input id="subject-input" name="subject" placeholder="Sujet" required />
+            </div>
+            <div style="margin-top:8px">
+              <textarea id="message-input" name="message" placeholder="Votre message" rows="5" required></textarea>
+            </div>
+            <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+              <button type="submit">Envoyer</button>
+              <span id="contact-result" style="color:var(--muted)"></span>
+            </div>
+          </form>
+        </article>
+
+        <footer>
+          <div>© <span id="year"></span> Antony Frackowiak. Built with ❤️ — <a href="#" style="color:inherit">Source</a></div>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <!-- Project Modal -->
+  <div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-inner" role="document">
+      <button class="close" aria-label="Fermer" id="modal-close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script>
+  
+  
+    // ---- Sample data: replace with your real projects ----
+    
+    const PROJECTS = [
+      {
+        id: 'p1',
+        title: 'App de gestion de tâches',
+        short: 'Un gestionnaire de tâches performant avec synchronisation en temps réel.',
+        description: 'Construite avec React, Node.js et WebSocket. Authentification, filtres avancés, et tests unitaires. Déployée sur Vercel/Heroku.',
+        tags: ['React','Node','Realtime'],
+        link: 'https://github.com/votre-username/projet-taches',
+        img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder'
+      },
+      {
+        id: 'p2',
+        title: 'Mini-portfolio (this site)',
+        short: 'Ce template de portfolio tout-en-un (HTML/CSS/JS) — minimal et accessible.',
+        description: 'Single-file template. Instructions prêtes pour GitHub Pages. Includes theme toggle and modal viewer.',
+        tags: ['HTML','CSS','JS'],
+        link: 'https://github.com/votre-username/portfolio',
+        img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder'
+      },
+      {
+        id: 'p3',
+        title: 'Analyse de données',
+        short: 'Notebooks et visualisations pour analyser des jeux de données publics.',
+        description: 'Scripts Python + notebooks. Visualisations exportables et pipeline ETL léger.',
+        tags: ['Python','Data'],
+        link: '#',
+        img: 'https://images.unsplash.com/photo-1554168264-79f5b0d8bb24?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder'
+      }
+    ];
+
+    // ---- DOM helpers and initialization ----
+    const grid = document.getElementById('projects-grid');
+    const modal = document.getElementById('project-modal');
+    const modalContent = document.getElementById('modal-content');
+    const modalClose = document.getElementById('modal-close');
+    const yearEl = document.getElementById('year');
+
+    function createProjectCard(project){
+      const el = document.createElement('article');
+      el.className = 'project';
+      el.tabIndex = 0;
+      el.setAttribute('role','button');
+      el.setAttribute('aria-labelledby', project.id + '-title');
+      el.innerHTML = `
+        <img src="${project.img}" alt="" style="width:100%;height:120px;object-fit:cover;border-radius:8px"/>
+        <h4 id="${project.id}-title">${project.title}</h4>
+        <p style="color:var(--muted);margin:0 0 8px">${project.short}</p>
+        <div class="tags">${project.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+      `;
+
+      el.addEventListener('click', () => openModal(project));
+      el.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') openModal(project); });
+
+      return el;
+    }
+
+    function openModal(project){
+      modalContent.innerHTML = `
+        <h2>${project.title}</h2>
+        <p style="color:var(--muted)">${project.description}</p>
+        <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap">
+          <a class="chip" href="${project.link}" target="_blank" rel="noopener">Voir le code</a>
+          <button class="chip" id="modal-copy">Copier le lien</button>
+        </div>
+        <img src="${project.img}" alt="Visuel ${project.title}" style="width:100%;margin-top:12px;border-radius:10px;max-height:420px;object-fit:cover"/>
+      `;
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+
+      // copy button
+      const copyBtn = document.getElementById('modal-copy');
+      if(copyBtn){ copyBtn.addEventListener('click', ()=>{ navigator.clipboard.writeText(project.link).then(()=>{ alert('Lien copié dans le presse-papiers'); }); }); }
+      // trap focus for accessibility
+      modalClose.focus();
+    }
+
+    function closeModal(){
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+
+    // Populate projects
+    function renderProjects(){
+      grid.innerHTML = '';
+      PROJECTS.forEach(p => grid.appendChild(createProjectCard(p)));
+    }
+
+    // Simple theme toggle that remembers preference
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn.addEventListener('click', ()=>{
+      const root = document.documentElement; const cur = root.getAttribute('data-theme') || 'dark';
+      const next = cur === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      themeBtn.setAttribute('aria-pressed', next === 'dark' ? 'false' : 'true');
+    });
+    (function loadTheme(){ const t = localStorage.getItem('theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); })();
+
+    // Navigation: smooth scroll + update aria-current
+    const nav = document.getElementById('main-nav');
+    nav.addEventListener('click', (e)=>{
+      if(e.target.matches('a[data-target]')){
+        e.preventDefault(); const target = document.getElementById(e.target.dataset.target);
+        target.scrollIntoView({behavior:'smooth',block:'start'});
+        // update current
+        nav.querySelectorAll('a').forEach(a => a.removeAttribute('aria-current'));
+        e.target.setAttribute('aria-current','true');
+      }
+    });
+
+    // Contact form handler (client-side only)
+    function handleContactSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name-input').value.trim();
+      const email = document.getElementById('email-input').value.trim();
+      const subject = document.getElementById('subject-input').value.trim();
+      const message = document.getElementById('message-input').value.trim();
+      const result = document.getElementById('contact-result');
+
+      // Basic validation
+      if(!name || !email || !message){ result.textContent = 'Veuillez remplir tous les champs.'; return false; }
+
+      // Example: show message and reset form. For production, connect to an email service (Formspree, Netlify forms, or your backend).
+      result.textContent = 'Merci — message prêt à être envoyé (exemple local).';
+      setTimeout(()=>{ document.getElementById('contact-form').reset(); result.textContent = ''; }, 2200);
+      return false;
+    }
+
+    // Small accessibility: keyboard skip to content
+    document.addEventListener('DOMContentLoaded', ()=>{
+      renderProjects();
+      yearEl.textContent = new Date().getFullYear();
+      // 'Enter' on logo returns home
+      document.querySelector('.logo').addEventListener('click', ()=> document.getElementById('home').scrollIntoView({behavior:'smooth'}));
+    });
+
+    // Expose contact handler globally for inline onsubmit
+    window.handleContactSubmit = handleContactSubmit;
+
+    // Small progressive enhancement: allow adding projects via console for quick editing
+    window.__addProject = function(p){ PROJECTS.push(p); renderProjects(); };
+
+    // Keyboard navigation improvements: focus outlines for keyboard users
+    (function(){
+      function handleFirstTab(e){ if(e.key === 'Tab'){ document.body.classList.add('user-is-tabbing'); window.removeEventListener('keydown', handleFirstTab); }}
+      window.addEventListener('keydown', handleFirstTab);
+    })();
+  </script>
 </body>
 </html>
 

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Warp Drive — Antony Frackowiak</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark" class="warpdrive-page">
+  <div class="container">
+    <header>
+      <div class="brand">
+        <img class="logo" src="alpha_sigma.jpg" alt="Logo">
+        <div>
+          <h1>Antony Frackowiak</h1>
+          <p class="lead">Portfolio — Cosmologie & Développement</p>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="astrophoto.html">Astrophotographie</a></li>
+          <li><a href="warpdrive.html" aria-current="true">Warp Drive</a></li>
+          <li><a href="livres.html">Mes livres</a></li>
+          <li><a href="Chronosmedia.html">Chronos media</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" aria-pressed="false" title="Basculer thème">Thème</button>
+    </header>
+
+    <main>
+      <h2>Travail sur le Warp Drive</h2>
+      <p>Dans le cadre de mon master Cosmologie et Univers à hautes énergies à l'Université Lyon 1 j'ai eu locasion de travailler en tant que stagiaire dans l'équipe AstroENS du Centre de recherche Astrophysique lyonnais (CRAL) aux cotés du Professeur Thomas Buchert. Mes recherches dans ce cadre universitaires ont portée sur la métrique d'Alcubierre et le dévéloppement de solution Warp-drive restreintes et générales. Tout ceci dans un but de compréhension plus globale de ce type d'objet, solution possible de la relativité générale d'Einstein (1915). </p>
+
+
+      <section>
+        <h3>Stage M1 — ENS Lyon</h3>
+        <p>Characterization and modeling of the properties of the Alcubierre metric in an inertial approach.</p>
+        <p>(...)</p>
+        <a class="chip" href="Internship_report_M1.pdf" id="M1_Internship_report">Télécharger rapport de stage de Master 1</a>
+      </section>
+    </main>
+
+
+      <section>
+        <h3>Stage M2 — ENS Lyon</h3>
+        <p>Novel realizations of the Alcubierre warpdrive as a solution of general relativity.</p>
+        <p>(...)</p>
+        <a class="chip" href="M2_Internship_report Antony Frackowiak.pdf" id="M2_Internship_report">Télécharger rapport de stage de Master 2</a>
+      </section>
+      
+      <section>
+        <h3>Le concept de Warpdrive</h3>
+        <p>(...)</p>
+      </section>
+       
+       
+    <footer>
+      <p>© 2025 Antony Frackowiak</p>
+    </footer>
+  </div>
+  
+<script>
+  const toggleBtn = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  toggleBtn.addEventListener("click", () => {
+    const currentTheme = body.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+    body.setAttribute("data-theme", newTheme);
+    toggleBtn.setAttribute("aria-pressed", newTheme === "light");
+  });
+</script>
+
+</body>
+</html>
+
